@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { AjustesPageRoutingModule } from './ajustes-routing.module';
 
 import { AjustesPage } from './ajustes.page';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AjustesPageRoutingModule
+    AjustesPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [AjustesPage]
 })
