@@ -3,18 +3,24 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 
 import { HeaderComponent } from './header/header.component';
+import { CardAlarmComponent } from './card-alarm/card-alarm.component';
+import { CardFilterComponent } from './card-filter/card-filter.component';
 
 
 @NgModule({
   declarations: [
-    HeaderComponent
+    HeaderComponent,
+    CardAlarmComponent,
+    CardFilterComponent
   ],
   imports: [
     CommonModule,
     IonicModule
   ],
   exports:[
-    HeaderComponent
+    HeaderComponent,
+    CardAlarmComponent,
+    CardFilterComponent
   ]
 })
 export class ComponentsModule { }

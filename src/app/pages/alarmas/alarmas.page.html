@@ -1,9 +1,54 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>Appalarmas</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
+  <ion-text >
+    <h3>Próximas 5 alarmas</h3>
+  </ion-text>
+<app-card-alarm></app-card-alarm>
+
+<ion-text >
+  <h3>Filtros</h3>
+</ion-text>
+
+<ion-grid class="ion-no-padding">
+  <ion-row>
+    <ion-col >
+      <app-card-filter
+      title="Todas"
+      icon="alarm"
+      [totalAlarms]="8"
+      ></app-card-filter>
+    </ion-col>
+    <ion-col size="1"></ion-col>
+    <ion-col >
+      <app-card-filter
+      title="Hoy"
+      icon="calendar"
+      [totalAlarms]="1">
+    </app-card-filter>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+<ion-fab slot="fixed" vertical="bottom" horizontal="end">
+  <ion-fab-button>
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+  <ion-fab-list side="top">
+    <ion-fab-button>
+      <ion-icon name="alarm"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button>
+      <ion-icon name="pricetag"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button>
+      <ion-icon name="people"></ion-icon>
+    </ion-fab-button>
+  </ion-fab-list>
+</ion-fab>
 
 </ion-content>

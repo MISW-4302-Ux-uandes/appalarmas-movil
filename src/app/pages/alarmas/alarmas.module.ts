@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { AlarmasPageRoutingModule } from './alarmas-routing.module';
 
 import { AlarmasPage } from './alarmas.page';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AlarmasPageRoutingModule
+    AlarmasPageRoutingModule,
+    ComponentsModule
   ],
-  declarations: [AlarmasPage]
+  declarations: [AlarmasPage],
 })
 export class AlarmasPageModule {}
