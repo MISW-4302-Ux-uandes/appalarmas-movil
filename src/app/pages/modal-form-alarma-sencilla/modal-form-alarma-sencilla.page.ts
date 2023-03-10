@@ -9,7 +9,7 @@ import { ModalController } from '@ionic/angular';
 })
 export class ModalFormAlarmaSencillaPage implements OnInit {
 
-
+  hora:string = '';
   constructor(private _fb: FormBuilder, private _modalCtrl:ModalController) { }
 
   formAlarmaSencilla: FormGroup = this._fb.group({
@@ -26,7 +26,6 @@ export class ModalFormAlarmaSencillaPage implements OnInit {
   }
 
   crearAlarmaSencilla(){
-    console.log('Submit: ',this.formAlarmaSencilla.value)
     if(this.formAlarmaSencilla.invalid){
       this.formAlarmaSencilla.markAllAsTouched()
       return
@@ -41,12 +40,14 @@ export class ModalFormAlarmaSencillaPage implements OnInit {
     this._modalCtrl.dismiss();
   }
 
-  mostrarCalendario(){
-    console.log('Show modal')
+  obtenerFecha(event:any){
+    this.formAlarmaSencilla.controls['fecha'].setValue(event.detail.value.substring(0,10))
   }
 
-  mostrarTiempo(){
-    console.log('Show hora')
+  obtenerTiempo(event:any){
+    const valorHora = event.detail.value;
+    this.formAlarmaSencilla.controls['hora'].setValue(valorHora.substring(11,19))
+    this.hora = valorHora
   }
 
 }

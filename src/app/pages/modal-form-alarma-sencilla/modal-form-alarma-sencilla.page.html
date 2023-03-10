@@ -12,19 +12,45 @@
     <ion-grid fixed class="ion-no-padding">
       <ion-row>
         <ion-col >
-          <ion-item id="date">
+          <ion-item id="mostrar-calendario">
             <ion-label position="stacked">Fecha</ion-label>
-            <ion-input (click)="mostrarCalendario()" formControlName="fecha">
+            <ion-input readonly  formControlName="fecha">
             </ion-input>
+            <ion-modal trigger="mostrar-calendario">
+              <ng-template>
+                <ion-datetime
+                  [showDefaultButtons]="true"
+                  presentation="date"
+                  (ionChange)="obtenerFecha($event)"
+                  [value]="formAlarmaSencilla.get('fecha')?.value"
+                  size="cover"
+                  doneText="Hecho"
+                  cancelText="Cancelar"
+                ></ion-datetime>
+              </ng-template>
+            </ion-modal>
             <ion-note slot="error" *ngIf="campoValido('fecha')">Campo obligatorio</ion-note>
           </ion-item>
+
         </ion-col>
         <ion-col size="1"></ion-col>
         <ion-col >
-          <ion-item id="date">
+          <ion-item id="mostrar-tiempo">
             <ion-label position="stacked">Hora</ion-label>
-            <ion-input (click)="mostrarTiempo()" formControlName="hora">
-            </ion-input>
+            <ion-input readonly formControlName="hora"></ion-input>
+            <ion-modal trigger="mostrar-tiempo">
+              <ng-template>
+                <ion-datetime
+                  [showDefaultButtons]="true"
+                  presentation="time"
+                  (ionChange)="obtenerTiempo($event)"
+                  [value]="hora"
+                  size="cover"
+                  doneText="Hecho"
+                  cancelText="Cancelar"
+                ></ion-datetime>
+              </ng-template>
+            </ion-modal>
             <ion-note slot="error" *ngIf="campoValido('hora')">Campo obligatorio</ion-note>
           </ion-item>
         </ion-col>
@@ -44,7 +70,7 @@
     </ion-item>
     <ion-item>
       <ion-label position="stacked">Tono</ion-label>
-      <ion-select tex interface="action-sheet" placeholder="Seleccione un tono" formControlName="tono">
+      <ion-select cancelText="Cancelar" tex interface="action-sheet" placeholder="Seleccione un tono" formControlName="tono">
         <ion-select-option *ngFor="let item of [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]; let i = index"
         value="tono-{{i+1}}">Tono {{i+1}}
       </ion-select-option>
