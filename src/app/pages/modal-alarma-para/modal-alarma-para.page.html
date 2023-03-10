@@ -1,0 +1,10 @@
+
+<app-header-modal titulo="Nueva alarma para"></app-header-modal>
+
+<ion-content class="ion-padding">
+  <app-card-alarm-type *ngFor="let tipo of tiposDeAlarmas"
+  [titulo]="tipo.titulo"
+  [redirectTo]="tipo.redirectTo"
+  [descripcion]="tipo.descripcion"
+  ></app-card-alarm-type>
+</ion-content>
