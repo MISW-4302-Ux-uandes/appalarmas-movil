@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button (click)="cerrarModal()">
+        <ion-icon slot="start" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Sonido y vibración</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item button detail="true">
+    <ion-icon name="musical-notes" slot="start"></ion-icon>
+    <ion-label>Tono de alarma</ion-label>
+  </ion-item>
+
+  <ion-item button detail="true">
+    <ion-icon name="time" slot="start"></ion-icon>
+    <ion-label>Duración del tono de llamada</ion-label>
+  </ion-item>
+
+  <ion-item >
+    <ion-icon name="volume-high" slot="start"></ion-icon>
+    <ion-label>Volumen</ion-label>
+    <ion-range></ion-range>
+    <ion-icon name="play-circle"></ion-icon>
+  </ion-item>
+
+  <ion-item>
+    <ion-icon name="volume-mute" slot="start"></ion-icon>
+    <ion-label>Vibra</ion-label>
+    <ion-toggle slot="end" checked></ion-toggle>
+  </ion-item>
+
+  <ion-item>
+    <ion-icon name="repeat" slot="start"></ion-icon>
+    <ion-label>Repteción automática</ion-label>
+    <ion-toggle slot="end" ></ion-toggle>
+  </ion-item>  
+  
+</ion-content>
