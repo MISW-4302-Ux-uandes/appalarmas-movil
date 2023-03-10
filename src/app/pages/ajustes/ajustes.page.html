@@ -1,5 +1,32 @@
 <app-header title="Ajustes"></app-header>
 
 <ion-content>
+    <ion-item button detail="true" (click)="verPerfil()" >
+        <ion-icon name="person-circle" slot="start"></ion-icon>
+        <ion-label>
+          Mi perfil
+        </ion-label>
+    </ion-item>
+
+    <ion-item button detail="true" (click)="verSonidoVibracion()">
+        <ion-icon name="musical-notes" slot="start"></ion-icon>
+        <ion-label>
+          Sonido y vibración
+        </ion-label>
+    </ion-item>
+
+    <ion-item button detail="true" (click)="verTema()">
+        <ion-icon name="cog" slot="start"></ion-icon>
+        <ion-label>
+          Tema
+        </ion-label>
+    </ion-item>
+
+    <ion-item button detail="true" (click)="verCalificacion()">
+        <ion-icon name="star" slot="start"></ion-icon>
+        <ion-label>
+          Valora esta aplicación
+        </ion-label>
+    </ion-item>
 
 </ion-content>

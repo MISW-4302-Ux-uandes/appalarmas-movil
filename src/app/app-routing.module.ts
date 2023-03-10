@@ -29,6 +29,22 @@ const routes: Routes = [
   {
     path: 'modal-form-recordatorio-rapido',
     loadChildren: () => import('./pages/modal-form-recordatorio-rapido/modal-form-recordatorio-rapido.module').then( m => m.ModalFormRecordatorioRapidoPageModule)
+  },
+  {
+    path: 'ajustes-perfil',
+    loadChildren: () => import('./pages/ajustes-perfil/ajustes-perfil.module').then( m => m.AjustesPerfilPageModule)
+  },
+  {
+    path: 'ajustes-sonidos-vibracion',
+    loadChildren: () => import('./pages/ajustes-sonidos-vibracion/ajustes-sonidos-vibracion.module').then( m => m.AjustesSonidosVibracionPageModule)
+  },
+  {
+    path: 'ajustes-tema',
+    loadChildren: () => import('./pages/ajustes-tema/ajustes-tema.module').then( m => m.AjustesTemaPageModule)
+  },
+  {
+    path: 'ajustes-califica',
+    loadChildren: () => import('./pages/ajustes-califica/ajustes-califica.module').then( m => m.AjustesCalificaPageModule)
   }
 
 ];
