@@ -1,5 +1,78 @@
 <app-header-modal titulo="Nueva Alarma Sencilla"></app-header-modal>
 
-<ion-content>
+<ion-content class="ion-padding">
+  <form [formGroup]="formAlarmaSencilla" (ngSubmit)="crearAlarmaSencilla()">
+  <ion-list>
+    <ion-item >
+      <ion-label position="stacked">Titulo</ion-label>
+      <ion-input placeholder="Ingrese un título para la alarma" formControlName="titulo"></ion-input>
+      <ion-note slot="error" *ngIf="campoValido('titulo')">Campo obligatorio</ion-note>
+    </ion-item>
 
+    <ion-grid fixed class="ion-no-padding">
+      <ion-row>
+        <ion-col >
+          <ion-item id="date">
+            <ion-label position="stacked">Fecha</ion-label>
+            <ion-input (click)="mostrarCalendario()" formControlName="fecha">
+            </ion-input>
+            <ion-note slot="error" *ngIf="campoValido('fecha')">Campo obligatorio</ion-note>
+          </ion-item>
+        </ion-col>
+        <ion-col size="1"></ion-col>
+        <ion-col >
+          <ion-item id="date">
+            <ion-label position="stacked">Hora</ion-label>
+            <ion-input (click)="mostrarTiempo()" formControlName="hora">
+            </ion-input>
+            <ion-note slot="error" *ngIf="campoValido('hora')">Campo obligatorio</ion-note>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-item>
+      <ion-label position="stacked">Repite</ion-label>
+      <ion-select tex interface="popover" placeholder="Seleccione una frecuencia" formControlName="frecuencia">
+        <ion-select-option value="unica">Una vez</ion-select-option>
+        <ion-select-option value="diario">Diariamente</ion-select-option>
+        <ion-select-option value="semana">Semanal</ion-select-option>
+        <ion-select-option value="manual">Mensual</ion-select-option>
+        <ion-select-option value="anula">Anual</ion-select-option>
+      </ion-select>
+      <ion-note slot="error" *ngIf="campoValido('frecuencia')">Campo obligatorio</ion-note>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Tono</ion-label>
+      <ion-select tex interface="action-sheet" placeholder="Seleccione un tono" formControlName="tono">
+        <ion-select-option *ngFor="let item of [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]; let i = index"
+        value="tono-{{i+1}}">Tono {{i+1}}
+      </ion-select-option>
+      </ion-select>
+      <ion-note slot="error" *ngIf="campoValido('tono')">Campo obligatorio</ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked" >Sonido</ion-label>
+      <ion-range formControlName="volSonido"></ion-range>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Notas</ion-label>
+        <ion-textarea formControlName="notas" placeholder="Escriba comentarios adicionales" [autoGrow]="true">
+        </ion-textarea>
+    </ion-item>
+  </ion-list>
+  <ion-grid fixed class="ion-no-padding">
+    <ion-row class="ion-text-center">
+      <ion-col>
+        <ion-button expand="block" color="danger" (click)="cancelar()">Cancelar</ion-button>
+      </ion-col>
+      <ion-col size="1"></ion-col>
+      <ion-col >
+        <ion-button expand="block" color="primary" type="submit">Guardar</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</form>
 </ion-content>
