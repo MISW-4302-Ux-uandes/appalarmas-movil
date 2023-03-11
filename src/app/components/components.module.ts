@@ -7,6 +7,7 @@ import { CardAlarmComponent } from './card-alarm/card-alarm.component';
 import { CardFilterComponent } from './card-filter/card-filter.component';
 import { CardAlarmTypeComponent } from './card-alarm-type/card-alarm-type.component';
 import { HeaderModalComponent } from './header-modal/header-modal.component';
+import { CardQuickReminderComponent } from './card-quick-reminder/card-quick-reminder.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { HeaderModalComponent } from './header-modal/header-modal.component';
     CardAlarmComponent,
     CardFilterComponent,
     CardAlarmTypeComponent,
-    HeaderModalComponent
+    HeaderModalComponent,
+    CardQuickReminderComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +28,8 @@ import { HeaderModalComponent } from './header-modal/header-modal.component';
     CardAlarmComponent,
     CardFilterComponent,
     CardAlarmTypeComponent,
-    HeaderModalComponent
+    HeaderModalComponent,
+    CardQuickReminderComponent
   ]
 })
 export class ComponentsModule { }

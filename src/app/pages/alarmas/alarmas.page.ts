@@ -23,7 +23,9 @@ export class AlarmasPage implements OnInit {
     });
     await modal.present();
     const r = await modal.onDidDismiss()
-    this._alertas.presentToast('bottom',r.data.msg,3000)
+    if(r.data){
+      this._alertas.presentToast('bottom',r.data?.msg,3000)
+    }
   }
 
 }

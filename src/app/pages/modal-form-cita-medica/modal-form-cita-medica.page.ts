@@ -60,7 +60,7 @@ export class ModalFormCitaMedicaPage implements OnInit {
 
 
   crearAlarmaCitaMedica(){
-    console.log(this.formAlarmaCitaMedica.value)
+
     if(this.formAlarmaCitaMedica.invalid){
       this.formAlarmaCitaMedica.markAllAsTouched()
       return

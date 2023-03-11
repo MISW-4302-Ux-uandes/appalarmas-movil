@@ -1,5 +1,84 @@
 <app-header-modal titulo="Nuevo Recordatorio Rápido"></app-header-modal>
 
-<ion-content>
+<ion-content class="ion-padding">
+
+  <ion-grid fixed class="ion-no-padding">
+    <ion-row class="ion-text-center">
+      <ion-col size="12">
+        <ion-text>
+          <h2>Recuérdame en</h2>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-align-items-center">
+      <ion-col size="6" class="ion-text-end">
+        <ion-text>
+          <h2>{{tiempoTotal}} min</h2>
+        </ion-text>
+        <ion-text >
+        </ion-text>
+      </ion-col>
+      <ion-col size="6">
+        <ion-button fill="clear" color="dark" (click)="restTiempo()">
+          <ion-icon slot="icon-only" name="refresh-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="">
+        <app-card-quick-reminder (click)="sumarTiempo(5)" texto="+ 5 min">
+        </app-card-quick-reminder>
+      </ion-col>
+      <ion-col size="1"></ion-col>
+      <ion-col size="">
+        <app-card-quick-reminder (click)="sumarTiempo(10)" texto="+ 10 min">
+        </app-card-quick-reminder>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="">
+        <app-card-quick-reminder (click)="sumarTiempo(15)" texto="+ 15 min">
+        </app-card-quick-reminder>
+      </ion-col>
+      <ion-col size="1"></ion-col>
+      <ion-col size="">
+        <app-card-quick-reminder (click)="sumarTiempo(30)" texto="+ 30 min">
+        </app-card-quick-reminder>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="">
+        <app-card-quick-reminder (click)="sumarTiempo(60)" texto="+ 1 hora">
+        </app-card-quick-reminder>
+      </ion-col>
+      <ion-col size="1"></ion-col>
+      <ion-col size="">
+        <app-card-quick-reminder (click)="sumarTiempo(720)" texto="+ 12 hora">
+        </app-card-quick-reminder>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12" class="ion-padding-vertical">
+        <ion-text >
+          <p>Pulsa una duración. Puedes pulsar varias veces para ajustar el tiempo necesario, este se irá sumando</p>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-text-center">
+      <ion-col>
+        <ion-button expand="block" color="danger" (click)="cancelar()">Cancelar</ion-button>
+      </ion-col>
+      <ion-col size="1"></ion-col>
+      <ion-col >
+        <ion-button expand="block" color="primary" [disabled]="tiempoTotal===0?true:false" (click)="crearRecordatorioRapido()" >Guardar</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+
+
 
 </ion-content>
