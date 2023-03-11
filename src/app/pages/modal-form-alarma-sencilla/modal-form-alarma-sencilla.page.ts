@@ -11,6 +11,7 @@ import { AlertasService } from 'src/app/services/alertas.service';
 export class ModalFormAlarmaSencillaPage implements OnInit {
 
   hora:string = '';
+  today = new Date().toISOString();
   constructor(private _fb: FormBuilder,
               private _modalCtrl:ModalController,
               private _alertasService:AlertasService) { }
@@ -55,7 +56,7 @@ export class ModalFormAlarmaSencillaPage implements OnInit {
 
   obtenerTiempo(event:any){
     const valorHora = event.detail.value;
-    this.formAlarmaSencilla.controls['hora'].setValue(valorHora.substring(11,19))
+    this.formAlarmaSencilla.controls['hora'].setValue(valorHora.substring(11,16))
     this.hora = valorHora
   }
 

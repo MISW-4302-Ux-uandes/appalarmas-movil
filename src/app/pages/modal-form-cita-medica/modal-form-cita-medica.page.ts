@@ -11,6 +11,7 @@ import { AlertasService } from 'src/app/services/alertas.service';
 export class ModalFormCitaMedicaPage implements OnInit {
 
   hora:string = '';
+  today = new Date().toISOString();
 
   pacientes:string[]=[
     'David Castro G',
@@ -77,12 +78,12 @@ export class ModalFormCitaMedicaPage implements OnInit {
   }
 
   obtenerFecha(event:any){
-    this.formAlarmaCitaMedica.controls['fecha'].setValue(event.detail.value.substring(0,10))
+    this.formAlarmaCitaMedica.controls['fecha'].setValue(event.detail.value?.substring(0,10))
   }
 
   obtenerTiempo(event:any){
     const valorHora = event.detail.value;
-    this.formAlarmaCitaMedica.controls['hora'].setValue(valorHora.substring(11,19))
+    this.formAlarmaCitaMedica.controls['hora'].setValue(valorHora?.substring(11,16))
     this.hora = valorHora
   }
 

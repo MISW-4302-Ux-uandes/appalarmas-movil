@@ -4,7 +4,7 @@
   <form [formGroup]="formAlarmaCitaMedica" (ngSubmit)="crearAlarmaCitaMedica()">
     <ion-list>
       <ion-item class="item-p">
-        <ion-label position="stacked">Titulo</ion-label>
+        <ion-label position="stacked">Título</ion-label>
         <ion-input placeholder="Ingrese un título para la alarma" formControlName="titulo"></ion-input>
         <ion-note slot="error" *ngIf="campoValido('titulo')">Campo obligatorio</ion-note>
       </ion-item>
@@ -28,6 +28,8 @@
                   size="cover"
                   doneText="Hecho"
                   cancelText="Cancelar"
+                  [min]="today"
+                  max="2050-12-31"
                 ></ion-datetime>
               </ng-template>
             </ion-modal>
