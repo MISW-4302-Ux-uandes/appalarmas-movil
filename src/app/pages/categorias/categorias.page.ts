@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { CategoriasFormularioPage } from '../categorias-formulario/categorias-formulario.page';
+
 
 @Component({
   selector: 'app-categorias',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoriasPage implements OnInit {
 
-  constructor() { }
+  constructor( private _modalCtrl:ModalController ) { }
 
   ngOnInit() {
+  }
+
+
+  async crearNuevaCategoria() {
+    const modal = await this._modalCtrl.create({
+      component: CategoriasFormularioPage
+    });
+    await modal.present();
   }
 
 }

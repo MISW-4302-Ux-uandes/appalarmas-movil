@@ -45,7 +45,11 @@ const routes: Routes = [
   {
     path: 'ajustes-califica',
     loadChildren: () => import('./pages/ajustes-califica/ajustes-califica.module').then( m => m.AjustesCalificaPageModule)
+  },  {
+    path: 'categorias-formulario',
+    loadChildren: () => import('./pages/categorias-formulario/categorias-formulario.module').then( m => m.CategoriasFormularioPageModule)
   }
+
 
 ];
 @NgModule({

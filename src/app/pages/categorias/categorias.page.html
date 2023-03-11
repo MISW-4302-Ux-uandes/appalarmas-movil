@@ -1,6 +1,66 @@
-
 <app-header title="Categorías"></app-header>
 
-<ion-content>
+<ion-content >      
+    <ion-item>
+        <ion-icon name="ellipse" color="tertiary" slot="start" ></ion-icon>
+        <ion-label>Citas Médicas</ion-label>
+        <ion-label>3 alarmas</ion-label>
+        <ion-button size="small" fill="outline">
+            <ion-icon name="create-outline"></ion-icon>
+        </ion-button>
+        <ion-button size="small" fill="outline">
+            <ion-icon name="trash-outline"></ion-icon>
+        </ion-button>
+    </ion-item>
+
+
+    <ion-item>
+        <ion-icon name="ellipse" color="warning" slot="start" ></ion-icon>
+        <ion-label>Tomar medicamentos</ion-label>
+        <ion-label>1 alarmas</ion-label>
+        <ion-button size="small" fill="outline">
+            <ion-icon name="create-outline" ></ion-icon>
+        </ion-button>
+        <ion-button size="small" fill="outline">
+            <ion-icon name="trash-outline"></ion-icon>
+        </ion-button>
+    </ion-item>
+
+    <ion-item>
+        <ion-icon name="ellipse" color="success" slot="start" ></ion-icon>
+        <ion-label>Recordatorios</ion-label>
+        <ion-label>Sin alarmas</ion-label>
+        <ion-button size="small" fill="outline">
+            <ion-icon name="create-outline"></ion-icon>
+        </ion-button>
+        <ion-button size="small" fill="outline">
+            <ion-icon name="trash-outline"></ion-icon>
+        </ion-button>
+    </ion-item>
+
+    <ion-item>
+        <ion-icon name="ellipse" color="secondary" slot="start" ></ion-icon>
+        <ion-label>Cumpleaños</ion-label>
+        <ion-label>Sin alarmas</ion-label>
+        <ion-button size="small" fill="outline">
+            <ion-icon name="create-outline"></ion-icon>
+        </ion-button>
+        <ion-button size="small" fill="outline">
+            <ion-icon name="trash-outline"></ion-icon>
+        </ion-button>
+    </ion-item>
+
+
+
+
+
+    <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+        <ion-fab-button>
+          <ion-icon name="add" (click)="crearNuevaCategoria()"></ion-icon>
+        </ion-fab-button>
+        
+    </ion-fab>
+
+
 
 </ion-content>
