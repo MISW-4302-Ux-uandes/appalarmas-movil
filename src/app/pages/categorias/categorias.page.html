@@ -5,10 +5,10 @@
         <ion-icon name="ellipse" color="tertiary" slot="start" ></ion-icon>
         <ion-label>Citas Médicas</ion-label>
         <ion-label>3 alarmas</ion-label>
-        <ion-button size="small" fill="outline">
+        <ion-button size="small" fill="outline" (click)="editCategoria('Citas Médicas')">
             <ion-icon name="create-outline"></ion-icon>
         </ion-button>
-        <ion-button size="small" fill="outline">
+        <ion-button size="small" fill="outline" (click)="eliminaCategoria('Citas Médicas')">
             <ion-icon name="trash-outline"></ion-icon>
         </ion-button>
     </ion-item>
@@ -18,10 +18,10 @@
         <ion-icon name="ellipse" color="warning" slot="start" ></ion-icon>
         <ion-label>Tomar medicamentos</ion-label>
         <ion-label>1 alarmas</ion-label>
-        <ion-button size="small" fill="outline">
+        <ion-button size="small" fill="outline" (click)="editCategoria('Tomar medicamentos')">
             <ion-icon name="create-outline" ></ion-icon>
         </ion-button>
-        <ion-button size="small" fill="outline">
+        <ion-button size="small" fill="outline" (click)="eliminaCategoria('Tomar medicamentos')">
             <ion-icon name="trash-outline"></ion-icon>
         </ion-button>
     </ion-item>
@@ -30,10 +30,10 @@
         <ion-icon name="ellipse" color="success" slot="start" ></ion-icon>
         <ion-label>Recordatorios</ion-label>
         <ion-label>Sin alarmas</ion-label>
-        <ion-button size="small" fill="outline">
+        <ion-button size="small" fill="outline" (click)="editCategoria('Recordatorios')">
             <ion-icon name="create-outline"></ion-icon>
         </ion-button>
-        <ion-button size="small" fill="outline">
+        <ion-button size="small" fill="outline" (click)="eliminaCategoria('Recordatorios')">
             <ion-icon name="trash-outline"></ion-icon>
         </ion-button>
     </ion-item>
@@ -42,10 +42,10 @@
         <ion-icon name="ellipse" color="secondary" slot="start" ></ion-icon>
         <ion-label>Cumpleaños</ion-label>
         <ion-label>Sin alarmas</ion-label>
-        <ion-button size="small" fill="outline">
+        <ion-button size="small" fill="outline" (click)="editCategoria('Cumpleaños')">
             <ion-icon name="create-outline"></ion-icon>
         </ion-button>
-        <ion-button size="small" fill="outline">
+        <ion-button size="small" fill="outline" (click)="eliminaCategoria('Cumpleaños')">
             <ion-icon name="trash-outline"></ion-icon>
         </ion-button>
     </ion-item>

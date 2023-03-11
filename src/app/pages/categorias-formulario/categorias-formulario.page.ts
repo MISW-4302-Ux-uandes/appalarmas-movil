@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlertasService } from 'src/app/services/alertas.service';
@@ -11,6 +11,8 @@ import { AlertasService } from 'src/app/services/alertas.service';
   styleUrls: ['./categorias-formulario.page.scss'],
 })
 export class CategoriasFormularioPage implements OnInit {
+  
+  @Input("value") value = '';
 
   constructor(private _modalCtrl:ModalController, private _fb: FormBuilder, private _alertasService:AlertasService) { }
  
@@ -19,6 +21,7 @@ export class CategoriasFormularioPage implements OnInit {
   })
 
   ngOnInit() {
+    
   }
 
   cerrarModal(){
