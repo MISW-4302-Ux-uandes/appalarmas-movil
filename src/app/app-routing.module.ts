@@ -45,13 +45,18 @@ const routes: Routes = [
   {
     path: 'ajustes-califica',
     loadChildren: () => import('./pages/ajustes-califica/ajustes-califica.module').then( m => m.AjustesCalificaPageModule)
-  },  {
+  },
+  {
     path: 'categorias-formulario',
     loadChildren: () => import('./pages/categorias-formulario/categorias-formulario.module').then( m => m.CategoriasFormularioPageModule)
   },
   {
     path: 'modal-lista-alarmas',
     loadChildren: () => import('./pages/modal-lista-alarmas/modal-lista-alarmas.module').then( m => m.ModalListaAlarmasPageModule)
+  },
+  {
+    path: 'grupos-formulario',
+    loadChildren: () => import('./pages/grupos-formulario/grupos-formulario.module').then( m => m.GruposFormularioPageModule)
   }
 
 
