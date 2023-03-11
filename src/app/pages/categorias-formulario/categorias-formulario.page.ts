@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AlertasService } from 'src/app/services/alertas.service';
+
 
 
 @Component({
@@ -10,7 +12,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class CategoriasFormularioPage implements OnInit {
 
-  constructor(private _modalCtrl:ModalController, private _fb: FormBuilder) { }
+  constructor(private _modalCtrl:ModalController, private _fb: FormBuilder, private _alertasService:AlertasService) { }
  
   formNuevaCategoria: FormGroup = this._fb.group({
     titulo:[,[Validators.required]]
@@ -24,7 +26,15 @@ export class CategoriasFormularioPage implements OnInit {
   }
 
   crearNuevaCategoria() {
-    return
+    if(this.formNuevaCategoria.invalid){
+      this.formNuevaCategoria.markAllAsTouched()
+      return
+    }
+    this._alertasService.showLoading('Configurando categoría...')
+    this._modalCtrl.dismiss({
+      ok:true,
+      msg:'Categoría creada'
+    });
   }
 
 }

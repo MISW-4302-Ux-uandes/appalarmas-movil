@@ -1,20 +1,11 @@
-<ion-header>
-  <ion-toolbar color="primary">
-    <ion-buttons slot="start">
-      <ion-button (click)="cerrarModal()">
-        <ion-icon slot="start" name="close"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-    <ion-title>Nueva categoría</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-header-modal titulo="Nueva categoría"></app-header-modal>
 
 <ion-content  class="ion-padding">
   <form [formGroup]="formNuevaCategoria" (ngSubmit)="crearNuevaCategoria()">
 
   <ion-item>
     <ion-label position="stacked">Título</ion-label>
-    <ion-input placeholder="" class="custom" ></ion-input>
+    <ion-input placeholder="" class="custom" formControlName="titulo" ></ion-input>
   </ion-item>
 
   <ion-grid fixed class="ion-no-padding">

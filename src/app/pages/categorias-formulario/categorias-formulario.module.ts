@@ -8,13 +8,16 @@ import { CategoriasFormularioPageRoutingModule } from './categorias-formulario-r
 
 import { CategoriasFormularioPage } from './categorias-formulario.page';
 
+import { ComponentsModule } from 'src/app/components/components.module';
+
 @NgModule({
   imports: [
     CommonModule, 
     ReactiveFormsModule,
     FormsModule,
     IonicModule,
-    CategoriasFormularioPageRoutingModule
+    CategoriasFormularioPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [CategoriasFormularioPage]
 })
