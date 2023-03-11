@@ -7,7 +7,7 @@
           <ion-card-subtitle>{{alarmCategory}} </ion-card-subtitle>
         </ion-col>
         <ion-col size="2">
-          <ion-toggle [enableOnOffLabels]="true" [checked]="alarmStatus"></ion-toggle>
+          <ion-toggle [enableOnOffLabels]="true" [checked]="alarmStatus" (ionChange)="toggleChange($event)"></ion-toggle>
         </ion-col>
       </ion-row>
     </ion-grid>

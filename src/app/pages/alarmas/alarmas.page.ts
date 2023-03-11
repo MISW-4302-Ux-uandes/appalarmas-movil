@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { AlertasService } from 'src/app/services/alertas.service';
 import { ModalAlarmaParaPage } from '../modal-alarma-para/modal-alarma-para.page';
+import { ModalListaAlarmasPage } from '../modal-lista-alarmas/modal-lista-alarmas.page';
 
 
 @Component({
@@ -26,6 +27,13 @@ export class AlarmasPage implements OnInit {
     if(r.data){
       this._alertas.presentToast('bottom',r.data?.msg,3000)
     }
+  }
+
+  async verListaAlarmas(){
+    const modalListaAlarmas = await this._modalCtrl.create({
+      component: ModalListaAlarmasPage
+    });
+    await modalListaAlarmas.present();
   }
 
 }

@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button (click)="cerrarModal()">
+        <ion-icon slot="start" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Mis alarmas</ion-title>
+  </ion-toolbar>
+
+  <ion-segment value="activas" (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="activas">
+      <ion-label>Activas</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="inactivas">
+      <ion-label>Inactivas</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+
+  <app-card-alarm *ngFor="let a of dataFiltered"
+  [alarmTitle]="a.titulo"
+  [alarmCategory]="a.categoria"
+  [alarmStatus]="a.activa"
+  [alarmHour]="a.fecha"
+  >
+  </app-card-alarm>
+
+
+</ion-content>

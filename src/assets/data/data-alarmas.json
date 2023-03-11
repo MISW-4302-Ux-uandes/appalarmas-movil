@@ -1,0 +1,21 @@
+[
+  {
+    "titulo": "Trabajo",
+    "categoria":"Alarma Sencilla",
+    "fecha":"13:00 2023-03-22",
+    "activa": true
+  },
+  {
+    "titulo": "Reunion Sprint",
+    "categoria":"Recordatorio ràpido",
+    "fecha":"15:15 2023-03-24",
+    "activa": true
+  },
+  {
+    "titulo": "Cita Daniel",
+    "categoria":"Cita mèdica",
+    "fecha":"08:20 2023-03-22",
+    "activa": true
+  }
+
+]

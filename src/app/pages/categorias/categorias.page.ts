@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { CategoriasFormularioPage } from '../categorias-formulario/categorias-formulario.page';
 
-import { AlertController } from '@ionic/angular';
 import { AlertasService } from 'src/app/services/alertas.service';
 
 
@@ -15,7 +14,6 @@ export class CategoriasPage implements OnInit {
   handlerMessage = '';
 
   constructor( private _modalCtrl:ModalController,
-              private alertController: AlertController,
               private _alertaCtrl: AlertasService ) { }
 
   ngOnInit() {
@@ -43,30 +41,10 @@ export class CategoriasPage implements OnInit {
     await modal.present();
   }
 
-  async eliminaCategoria(txt:string) {
-    const alert = await this.alertController.create({
-      header: '¿Borrar categoría ' + txt + '?',
-      buttons: [
-        {
-          text: 'Cancelar',
-          role: 'cancel',
-          handler: () => {
-            //this.handlerMessage = 'Alert canceled';
-          },
-        },
-        {
-          text: 'OK',
-          role: 'confirm',
-          handler: () => {
-            this._alertaCtrl.presentToast('bottom','Categoría eliminada')
-          },
-        },
-      ],
-    });
-
-    await alert.present();
+  eliminarCategoria(txt:string){
+    const header = '¿Borrar categoría ' + txt + '?';
+    const confimation = 'Categoría eliminada';
+    this._alertaCtrl.alertConfirmation(header,confimation)
   }
-
-
 
 }

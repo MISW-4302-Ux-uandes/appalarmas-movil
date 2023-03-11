@@ -48,6 +48,10 @@ const routes: Routes = [
   },  {
     path: 'categorias-formulario',
     loadChildren: () => import('./pages/categorias-formulario/categorias-formulario.module').then( m => m.CategoriasFormularioPageModule)
+  },
+  {
+    path: 'modal-lista-alarmas',
+    loadChildren: () => import('./pages/modal-lista-alarmas/modal-lista-alarmas.module').then( m => m.ModalListaAlarmasPageModule)
   }
 
 

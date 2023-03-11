@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { LoadingController, ToastController } from '@ionic/angular';
+import { AlertController, LoadingController, ToastController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +7,8 @@ import { LoadingController, ToastController } from '@ionic/angular';
 export class AlertasService {
 
   constructor(private _toastCtrl: ToastController,
-              private _loadingCtrl:LoadingController) { }
+              private _loadingCtrl:LoadingController,
+              private _alertCtrl:AlertController) { }
 
   async presentToast(position: 'top' | 'middle' | 'bottom', msg:string, duration:number=2000) {
     const toast = await this._toastCtrl.create({
@@ -28,5 +29,29 @@ export class AlertasService {
 
     loading.present();
 
+  }
+
+  async alertConfirmation(texto:string,textoConfirmacion:string) {
+    const alert = await this._alertCtrl.create({
+      header: texto,
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          handler: () => {
+            //this.handlerMessage = 'Alert canceled';
+          },
+        },
+        {
+          text: 'OK',
+          role: 'confirm',
+          handler: () => {
+            this.presentToast('bottom',textoConfirmacion)
+          },
+        },
+      ],
+    });
+
+    await alert.present();
   }
 }
