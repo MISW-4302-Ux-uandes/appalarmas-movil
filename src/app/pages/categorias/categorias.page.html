@@ -1,6 +1,59 @@
-
 <app-header title="Categorías"></app-header>
 
-<ion-content>
+<ion-content class="ion-padding" >
+  <ion-list class="ion-no-padding">
+    <ion-item lines="none">
+        <ion-icon name="ellipse" color="tertiary" slot="start"  class="icon-list"></ion-icon>
+        <ion-label>Citas Médicas</ion-label>
+        <ion-label>3 alarmas</ion-label>
+        <ion-button size="small" fill="clear" color="success"  (click)="editCategoria('Citas Médicas')">
+            <ion-icon name="create-outline"></ion-icon>
+        </ion-button>
+        <ion-button size="small" fill="clear" color="danger" (click)="eliminaCategoria('Citas Médicas')">
+            <ion-icon name="trash-outline"></ion-icon>
+        </ion-button>
+    </ion-item>
+
+    <ion-item lines="none">
+        <ion-icon name="ellipse" color="warning" slot="start"  class="icon-list"></ion-icon>
+        <ion-label>Tomar medicamentos</ion-label>
+        <ion-label>1 alarmas</ion-label>
+        <ion-button size="small" fill="clear" color="success" (click)="editCategoria('Tomar medicamentos')">
+            <ion-icon name="create-outline" ></ion-icon>
+        </ion-button>
+        <ion-button size="small" fill="clear" color="danger" (click)="eliminaCategoria('Tomar medicamentos')">
+            <ion-icon name="trash-outline"></ion-icon>
+        </ion-button>
+    </ion-item>
+
+    <ion-item lines="none">
+        <ion-icon name="ellipse" color="success" slot="start"  class="icon-list"></ion-icon>
+        <ion-label>Recordatorios</ion-label>
+        <ion-label>Sin alarmas</ion-label>
+        <ion-button size="small" fill="clear" color="success" (click)="editCategoria('Recordatorios')">
+            <ion-icon name="create-outline"></ion-icon>
+        </ion-button>
+        <ion-button size="small" fill="clear" color="danger" (click)="eliminaCategoria('Recordatorios')">
+            <ion-icon name="trash-outline"></ion-icon>
+        </ion-button>
+    </ion-item>
+
+    <ion-item lines="none">
+        <ion-icon name="ellipse" color="secondary" slot="start" class="icon-list"></ion-icon>
+        <ion-label>Cumpleaños</ion-label>
+        <ion-label>Sin alarmas</ion-label>
+        <ion-button size="small" fill="clear" color="success" (click)="editCategoria('Cumpleaños')">
+            <ion-icon name="create-outline"></ion-icon>
+        </ion-button>
+        <ion-button size="small" fill="clear" color="danger" (click)="eliminaCategoria('Cumpleaños')">
+            <ion-icon name="trash-outline"></ion-icon>
+        </ion-button>
+    </ion-item>
+  </ion-list>
+    <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+        <ion-fab-button>
+          <ion-icon name="add" (click)="crearNuevaCategoria()"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
 
 </ion-content>
