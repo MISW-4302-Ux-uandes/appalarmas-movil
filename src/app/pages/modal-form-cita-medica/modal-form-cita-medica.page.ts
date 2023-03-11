@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
+import { AlertasService } from 'src/app/services/alertas.service';
 
 @Component({
   selector: 'app-modal-form-cita-medica',
@@ -36,7 +37,9 @@ export class ModalFormCitaMedicaPage implements OnInit {
     'Urología',
     'Pediatria'
   ]
-  constructor(private _fb:FormBuilder, private _modalCtrl:ModalController) { }
+  constructor(private _fb:FormBuilder,
+              private _modalCtrl:ModalController,
+              private _alertasService:AlertasService) { }
 
   ngOnInit() {
   }
@@ -61,6 +64,12 @@ export class ModalFormCitaMedicaPage implements OnInit {
       this.formAlarmaCitaMedica.markAllAsTouched()
       return
     }
+    this._alertasService.showLoading('Configurando alarma...')
+    this._modalCtrl.dismiss({
+      ok:true,
+      msg:'Alarma cita médica creada correctamente'
+    });
+
   }
 
   campoValido(campo:string){
