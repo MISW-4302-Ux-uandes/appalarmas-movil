@@ -26,6 +26,8 @@
                   size="cover"
                   doneText="Hecho"
                   cancelText="Cancelar"
+                  [min]="today"
+                  max="2050-12-31"
                 ></ion-datetime>
               </ng-template>
             </ion-modal>
@@ -59,7 +61,7 @@
 
     <ion-item>
       <ion-label position="stacked">Repite</ion-label>
-      <ion-select tex interface="popover" placeholder="Seleccione una frecuencia" formControlName="frecuencia">
+      <ion-select interface="action-sheet" placeholder="Seleccione una frecuencia" formControlName="frecuencia">
         <ion-select-option value="unica">Una vez</ion-select-option>
         <ion-select-option value="diario">Diariamente</ion-select-option>
         <ion-select-option value="semana">Semanal</ion-select-option>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { AlertasService } from 'src/app/services/alertas.service';
 import { ModalAlarmaParaPage } from '../modal-alarma-para/modal-alarma-para.page';
 
 
@@ -10,7 +11,8 @@ import { ModalAlarmaParaPage } from '../modal-alarma-para/modal-alarma-para.page
 })
 export class AlarmasPage implements OnInit {
 
-  constructor(private _modalCtrl: ModalController) { }
+  constructor(private _modalCtrl: ModalController,
+              private _alertas: AlertasService,) { }
 
   ngOnInit() {
   }
@@ -20,6 +22,8 @@ export class AlarmasPage implements OnInit {
       component: ModalAlarmaParaPage
     });
     await modal.present();
+    const r = await modal.onDidDismiss()
+    this._alertas.presentToast('bottom',r.data.msg,3000)
   }
 
 }

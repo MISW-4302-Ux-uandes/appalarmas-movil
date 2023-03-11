@@ -30,30 +30,50 @@ export class CardAlarmTypeComponent  implements OnInit {
           component: ModalTipoAlarmaPage
         });
         await modalTipo.present();
+        modalTipo.onDidDismiss().then(
+          ({data})=>{
+            if(data){this._modalCtrl.dismiss({ok:true,msg:data.msg})}
+          })
         break;
       case 'formAlarmaSencilla':
         const modalAlarmaSencilla = await this._modalCtrl.create({
           component: ModalFormAlarmaSencillaPage
         });
         await modalAlarmaSencilla.present();
+        modalAlarmaSencilla.onDidDismiss().then(
+          ({data}) =>{
+            if(data){this._modalCtrl.dismiss({ok:true,msg:data.msg})}
+          })
         break;
       case 'formCitaMedica':
         const modalCitaMedica = await this._modalCtrl.create({
           component: ModalFormCitaMedicaPage
         });
         await modalCitaMedica.present();
+        modalCitaMedica.onDidDismiss().then(
+          ({data}) =>{
+            if(data){this._modalCtrl.dismiss({ok:true,msg:data.msg})}
+          })
         break;
       case 'formTomaMedicamentos':
         const modalTomaMedicamentos = await this._modalCtrl.create({
           component: ModalFormTomaMedicamentosPage
         });
         await modalTomaMedicamentos.present();
+        modalTomaMedicamentos.onDidDismiss().then(
+          ({data}) =>{
+            if(data){this._modalCtrl.dismiss({ok:true,msg:data.msg})}
+          })
         break;
       case 'formRecordatorio':
         const modalRecordatorioRapido = await this._modalCtrl.create({
           component: ModalFormRecordatorioRapidoPage
         });
         await modalRecordatorioRapido.present();
+        modalRecordatorioRapido.onDidDismiss().then(
+          ({data}) =>{
+            if(data){this._modalCtrl.dismiss({ok:true,msg:data.msg})}
+          })
         break;
       default:
         console.log('opción no valida!');

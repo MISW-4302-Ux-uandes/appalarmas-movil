@@ -1,5 +1,180 @@
-<app-header-modal titulo="Nuevao Toma Medicamentos"></app-header-modal>
+<app-header-modal titulo="Nueva Toma de Medicamentos"></app-header-modal>
 
-<ion-content>
+<ion-content class="ion-padding">
+
+  <form [formGroup]="formTomaMedicamentos" (ngSubmit)="crearAlarmaTomaMedicamentos()">
+    <ion-list>
+      <ion-item class="item-p">
+        <ion-label position="stacked">Título</ion-label>
+        <ion-input placeholder="Ingrese un título para la alarma" formControlName="titulo"></ion-input>
+        <ion-note slot="error" *ngIf="campoValido('titulo')">Campo obligatorio</ion-note>
+      </ion-item>
+        <!--Fecha y hora de Inicio-->
+      <ion-grid fixed class="ion-no-padding">
+        <ion-row>
+          <ion-col >
+            <ion-item class="item-p" id="mostrar-calendario-inicio">
+              <ion-label position="stacked">Fecha Inicio</ion-label>
+              <ion-input readonly  formControlName="fechaInicio">
+              </ion-input>
+              <ion-modal trigger="mostrar-calendario-inicio">
+                <ng-template>
+                  <ion-datetime
+                    [showDefaultButtons]="true"
+                    presentation="date"
+                    (ionChange)="obtenerFecha($event,'fechaInicio')"
+                    [value]="formTomaMedicamentos.get('fechaInicio')?.value"
+                    size="cover"
+                    doneText="Hecho"
+                    cancelText="Cancelar"
+                    [min]="today"
+                    max="2050-12-31"
+                  ></ion-datetime>
+                </ng-template>
+              </ion-modal>
+              <ion-note slot="error" *ngIf="campoValido('fechaInicio')">Campo obligatorio</ion-note>
+            </ion-item>
+
+          </ion-col>
+          <ion-col size="1"></ion-col>
+          <ion-col >
+            <ion-item class="item-p" id="mostrar-tiempo-inicio">
+              <ion-label position="stacked">Hora Inicio</ion-label>
+              <ion-input readonly formControlName="horaInicio"></ion-input>
+              <ion-modal trigger="mostrar-tiempo-inicio">
+                <ng-template>
+                  <ion-datetime
+                    [showDefaultButtons]="true"
+                    presentation="time"
+                    (ionChange)="obtenerTiempo($event,'horaInicio')"
+                    [value]="horaInicio"
+                    size="cover"
+                    doneText="Hecho"
+                    cancelText="Cancelar"
+                  ></ion-datetime>
+                </ng-template>
+              </ion-modal>
+              <ion-note slot="error" *ngIf="campoValido('horaInicio')">Campo obligatorio</ion-note>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <!--Fecha y hora Fin-->
+      <ion-grid fixed class="ion-no-padding">
+        <ion-row>
+          <ion-col >
+            <ion-item class="item-p" id="mostrar-calendario-fin">
+              <ion-label position="stacked">Fecha Fin</ion-label>
+              <ion-input readonly  formControlName="fechaFin">
+              </ion-input>
+              <ion-modal trigger="mostrar-calendario-fin">
+                <ng-template>
+                  <ion-datetime
+                    [showDefaultButtons]="true"
+                    presentation="date"
+                    (ionChange)="obtenerFecha($event,'fechaFin')"
+                    [value]="formTomaMedicamentos.get('fechaFin')?.value"
+                    size="cover"
+                    doneText="Hecho"
+                    cancelText="Cancelar"
+                    [min]="today"
+                    max="2050-12-31"
+                  ></ion-datetime>
+                </ng-template>
+              </ion-modal>
+              <ion-note slot="error" *ngIf="campoValido('fechaFin')">Campo obligatorio</ion-note>
+            </ion-item>
+
+          </ion-col>
+          <ion-col size="1"></ion-col>
+          <ion-col >
+            <ion-item class="item-p" id="mostrar-tiempo-fin">
+              <ion-label position="stacked">Hora Fin</ion-label>
+              <ion-input readonly formControlName="horaFin"></ion-input>
+              <ion-modal trigger="mostrar-tiempo-fin">
+                <ng-template>
+                  <ion-datetime
+                    [showDefaultButtons]="true"
+                    presentation="time"
+                    (ionChange)="obtenerTiempo($event,'horaFin')"
+                    [value]="horaFin"
+                    size="cover"
+                    doneText="Hecho"
+                    cancelText="Cancelar"
+                  ></ion-datetime>
+                </ng-template>
+              </ion-modal>
+              <ion-note slot="error" *ngIf="campoValido('horaFin')">Campo obligatorio</ion-note>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-grid fixed class="ion-no-padding">
+        <ion-row>
+          <ion-col size="">
+            <ion-item>
+              <ion-label position="stacked">Medicamento</ion-label>
+              <ion-input placeholder="Ingrese el nombre del medicamento" formControlName="medicamento"></ion-input>
+              <ion-note slot="error" *ngIf="campoValido('medicamento')">Campo obligatorio</ion-note>
+            </ion-item>
+          </ion-col>
+          <ion-col size="1"></ion-col>
+          <ion-col size="5">
+            <ion-item>
+              <ion-label position="stacked">¿Formulado?</ion-label>
+              <ion-toggle [enableOnOffLabels]="true" [checked]="false" formControlName="esFormulado"></ion-toggle>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid fixed class="ion-no-padding">
+        <ion-row>
+          <ion-col size="">
+            <ion-item>
+              <ion-label position="stacked">Dosis</ion-label>
+              <ion-input formControlName="dosificacion" placeholder="Ejem: 10"></ion-input>
+              <ion-note slot="error" *ngIf="campoValido('dosificacion')">Campo obligatorio</ion-note>
+            </ion-item>
+          </ion-col>
+          <ion-col size="1">
+
+          </ion-col>
+          <ion-col size="">
+            <ion-item>
+              <ion-label position="stacked">Unidades</ion-label>
+              <ion-select cancelText="Cancelar" interface="popover" formControlName="unidades">
+                <ion-select-option *ngFor="let u of unidades; let i = index"
+                value="{{u}}">{{u}}
+              </ion-select-option>
+            </ion-select>
+            <ion-note slot="error" *ngIf="campoValido('unidades')">Campo obligatorio</ion-note>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+    <ion-item class="item-p">
+      <ion-label position="stacked">Notas</ion-label>
+        <ion-textarea formControlName="notas" placeholder="Escriba comentarios adicionales" [autoGrow]="true">
+        </ion-textarea>
+    </ion-item>
+
+    <ion-grid fixed class="ion-no-padding">
+      <ion-row class="ion-text-center">
+        <ion-col>
+          <ion-button expand="block" color="danger" (click)="cancelar()">Cancelar</ion-button>
+        </ion-col>
+        <ion-col size="1"></ion-col>
+        <ion-col >
+          <ion-button expand="block" color="primary" type="submit">Guardar</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    </ion-list>
+  </form>
 
 </ion-content>
