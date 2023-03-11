@@ -1,15 +1,6 @@
-<ion-header>
-  <ion-toolbar color="primary">
-    <ion-buttons slot="start">
-      <ion-button (click)="cerrarModal()">
-        <ion-icon slot="start" name="close"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-    <ion-title>Sonido y vibración</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-header-modal titulo="Sonido y vibración"></app-header-modal>
 
-<ion-content>
+<ion-content class="ion-padding">
   <ion-item button detail="true">
     <ion-icon name="musical-notes" slot="start"></ion-icon>
     <ion-label>Tono de alarma</ion-label>
@@ -37,6 +28,6 @@
     <ion-icon name="repeat" slot="start"></ion-icon>
     <ion-label>Repteción automática</ion-label>
     <ion-toggle slot="end" ></ion-toggle>
-  </ion-item>  
-  
+  </ion-item>
+
 </ion-content>

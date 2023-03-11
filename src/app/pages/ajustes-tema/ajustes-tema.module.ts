@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { AjustesTemaPageRoutingModule } from './ajustes-tema-routing.module';
 
 import { AjustesTemaPage } from './ajustes-tema.page';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AjustesTemaPageRoutingModule
+    AjustesTemaPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [AjustesTemaPage]
 })

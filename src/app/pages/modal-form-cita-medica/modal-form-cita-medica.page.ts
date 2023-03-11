@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-modal-form-cita-medica',
@@ -7,9 +9,76 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ModalFormCitaMedicaPage implements OnInit {
 
-  constructor() { }
+  hora:string = '';
+
+  pacientes:string[]=[
+    'David Castro G',
+    'Nelson Barreto',
+    'Pepito Perez'
+  ]
+
+  medicos:string[]=[
+    'Agustin Correo',
+    'Sergio Bennedeti',
+    'Marcela Giraldo'
+  ]
+
+  centrosMedicos:string[]=[
+    'Calle 26',
+    'Portal Norte',
+    'Restrepo'
+  ]
+
+  especialidades:string[]=[
+    'Odontología',
+    'Medicina General',
+    'Psicología',
+    'Urología',
+    'Pediatria'
+  ]
+  constructor(private _fb:FormBuilder, private _modalCtrl:ModalController) { }
 
   ngOnInit() {
+  }
+
+  formAlarmaCitaMedica:FormGroup = this._fb.group({
+    titulo:[,[Validators.required]],
+    fecha: [, [Validators.required]],
+    hora:[,[Validators.required]],
+    paciente:[,[Validators.required]],
+    centroMedico:[],
+    consultorio:[],
+    medico:[],
+    especialidad:[],
+    notas:[],
+    preparacionEspecial:[]
+  });
+
+
+  crearAlarmaCitaMedica(){
+    console.log(this.formAlarmaCitaMedica.value)
+    if(this.formAlarmaCitaMedica.invalid){
+      this.formAlarmaCitaMedica.markAllAsTouched()
+      return
+    }
+  }
+
+  campoValido(campo:string){
+    return this.formAlarmaCitaMedica.controls[campo].errors && this.formAlarmaCitaMedica.controls[campo].touched
+  }
+
+  obtenerFecha(event:any){
+    this.formAlarmaCitaMedica.controls['fecha'].setValue(event.detail.value.substring(0,10))
+  }
+
+  obtenerTiempo(event:any){
+    const valorHora = event.detail.value;
+    this.formAlarmaCitaMedica.controls['hora'].setValue(valorHora.substring(11,19))
+    this.hora = valorHora
+  }
+
+  cancelar(){
+    this._modalCtrl.dismiss();
   }
 
 }
