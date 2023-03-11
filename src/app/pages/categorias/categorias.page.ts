@@ -3,6 +3,7 @@ import { ModalController } from '@ionic/angular';
 import { CategoriasFormularioPage } from '../categorias-formulario/categorias-formulario.page';
 
 import { AlertController } from '@ionic/angular';
+import { AlertasService } from 'src/app/services/alertas.service';
 
 
 @Component({
@@ -12,17 +13,21 @@ import { AlertController } from '@ionic/angular';
 })
 export class CategoriasPage implements OnInit {
   handlerMessage = '';
-  roleMessage = '';
 
-  constructor( private _modalCtrl:ModalController, private alertController: AlertController ) { }
+  constructor( private _modalCtrl:ModalController,
+              private alertController: AlertController,
+              private _alertaCtrl: AlertasService ) { }
 
   ngOnInit() {
-  }
 
+  }
 
   async crearNuevaCategoria() {
     const modal = await this._modalCtrl.create({
-      component: CategoriasFormularioPage
+      component: CategoriasFormularioPage,
+      componentProps:{
+        tipo:'Crear'
+      }
     });
     await modal.present();
   }
@@ -31,7 +36,8 @@ export class CategoriasPage implements OnInit {
     const modal = await this._modalCtrl.create({
       component: CategoriasFormularioPage,
       componentProps:{
-        value: txt
+        tipo:'Editar',
+        valor: txt
       }
     });
     await modal.present();
@@ -42,28 +48,25 @@ export class CategoriasPage implements OnInit {
       header: '¿Borrar categoría ' + txt + '?',
       buttons: [
         {
-          text: 'Cancel',
+          text: 'Cancelar',
           role: 'cancel',
           handler: () => {
-            this.handlerMessage = 'Alert canceled';
+            //this.handlerMessage = 'Alert canceled';
           },
         },
         {
           text: 'OK',
           role: 'confirm',
           handler: () => {
-            this.handlerMessage = 'Alert confirmed';
+            this._alertaCtrl.presentToast('bottom','Categoría eliminada')
           },
         },
       ],
     });
 
     await alert.present();
-
-    const { role } = await alert.onDidDismiss();
-    this.roleMessage = `Dismissed with role: ${role}`;
   }
 
-  
+
 
 }
