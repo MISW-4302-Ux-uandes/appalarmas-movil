@@ -2,4 +2,32 @@
 
 <ion-content>
 
+    <ion-item-group *ngFor="let grupo of [1,2,3,4,5]">
+
+        <ion-item-divider >
+          <ion-label>Grupo {{ grupo }} </ion-label>
+        </ion-item-divider>
+
+        <ion-item *ngFor="let integrante of ['Integrante 1', 'Integrante 2', 'Integrante 3','Integrante 4','Integrante 5']">
+          <ion-label>{{ integrante }}</ion-label>
+        </ion-item>
+
+        <ion-item >
+            <ion-button slot="start" fill="clear">
+                <ion-icon name="person-add-outline" slot="start"></ion-icon>
+                Agregar integrante
+              </ion-button>    
+        </ion-item>
+        
+      </ion-item-group>
+
+
+    <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+      <ion-fab-button>
+        <ion-icon name="add" (click)="crearNuevoGrupo()"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+      
+      
+
 </ion-content>

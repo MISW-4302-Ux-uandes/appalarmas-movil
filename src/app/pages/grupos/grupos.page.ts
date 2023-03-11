@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { GruposFormularioPage } from '../grupos-formulario/grupos-formulario.page';
 
 @Component({
   selector: 'app-grupos',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GruposPage implements OnInit {
 
-  constructor() { }
+  constructor(private _modalCtrl:ModalController) { }
 
   ngOnInit() {
+  }
+
+  async crearNuevoGrupo() {
+    const modal = await this._modalCtrl.create({
+      component: GruposFormularioPage
+    });
+    await modal.present();
   }
 
 }

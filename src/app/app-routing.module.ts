@@ -48,6 +48,10 @@ const routes: Routes = [
   },  {
     path: 'categorias-formulario',
     loadChildren: () => import('./pages/categorias-formulario/categorias-formulario.module').then( m => m.CategoriasFormularioPageModule)
+  },
+  {
+    path: 'grupos-formulario',
+    loadChildren: () => import('./pages/grupos-formulario/grupos-formulario.module').then( m => m.GruposFormularioPageModule)
   }
 
 

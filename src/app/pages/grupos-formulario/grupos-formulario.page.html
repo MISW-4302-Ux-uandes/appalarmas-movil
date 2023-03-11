@@ -1,0 +1,33 @@
+<app-header-modal titulo="Nuevo Grupo"></app-header-modal>
+
+<ion-content>
+
+
+  <form [formGroup]="formNuevoGrupo" (ngSubmit)="crearNuevoGrupo()">
+
+    <ion-item>
+      <ion-label position="stacked">Título</ion-label>
+      <ion-input placeholder="" class="custom" formControlName="titulo"></ion-input>
+      <ion-note slot="error" *ngIf="campoValido('titulo')">Campo obligatorio</ion-note>
+    </ion-item>
+
+    <app-item-contactos></app-item-contactos>
+
+    <ion-grid fixed class="ion-no-padding">
+      <ion-row class="ion-text-center">
+        <ion-col>
+          <ion-button expand="block" color="danger" (click)="cerrarModal()">Cancelar</ion-button>
+        </ion-col>
+        <ion-col size="1"></ion-col>
+        <ion-col >
+          <ion-button expand="block" color="primary" type="submit">Guardar</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+
+    
+</form>
+
+
+</ion-content>
