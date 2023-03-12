@@ -21,7 +21,7 @@ export class LoginPage implements OnInit {
   }
 
   formLogin:FormGroup = this._fb.group({
-    email:['inivitado@uniandes.edu.co',[Validators.required]],
+    email:['invitado@uniandes.edu.co',[Validators.required]],
     password:['PaSsWordTest',[Validators.required]]
   });
 
