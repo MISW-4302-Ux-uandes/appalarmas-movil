@@ -23,7 +23,7 @@ export class GruposFormularioPage implements OnInit {
   ngOnInit() {
     if(this.tipo == 'Editar'){
       this.formNuevoGrupo.controls['titulo'].setValue(this.valor);
-      this.titulo = 'Editar Categoría';
+      this.titulo = 'Editar Grupo';
     }
   }
 
@@ -37,9 +37,9 @@ export class GruposFormularioPage implements OnInit {
       return
     }
     if(this.tipo == 'Editar'){
-      this._alertas.presentToast('bottom', 'Categoría actualizada', 3000)
+      this._alertas.presentToast('bottom', 'Grupo actualizado', 3000)
     }else{
-      this._alertas.presentToast('bottom', 'Categoría creada', 3000)
+      this._alertas.presentToast('bottom', 'Grupo creado', 3000)
     }
     this._modalCtrl.dismiss({});
   }

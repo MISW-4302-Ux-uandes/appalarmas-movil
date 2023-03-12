@@ -57,7 +57,11 @@ const routes: Routes = [
   {
     path: 'grupos-formulario',
     loadChildren: () => import('./pages/grupos-formulario/grupos-formulario.module').then( m => m.GruposFormularioPageModule)
+  },  {
+    path: 'lista-contactos',
+    loadChildren: () => import('./pages/lista-contactos/lista-contactos.module').then( m => m.ListaContactosPageModule)
   }
+
 
 
 ];

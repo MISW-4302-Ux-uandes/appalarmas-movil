@@ -5,6 +5,19 @@
         <ion-icon slot="start" name="arrow-back"></ion-icon>
       </ion-button>
     </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="agregarIntegrantes()">
+        Ok
+      </ion-button>
+    </ion-buttons>
+    
     <ion-title>Seleccione participantes</ion-title>
+
+    
   </ion-toolbar>
 </ion-header>
+
+<ion-content>
+  <app-item-contactos></app-item-contactos>
+
+</ion-content>

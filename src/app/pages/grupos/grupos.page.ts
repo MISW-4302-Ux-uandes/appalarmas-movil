@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { GruposFormularioPage } from '../grupos-formulario/grupos-formulario.page';
+import { ListaContactosPage } from '../lista-contactos/lista-contactos.page';
 
 @Component({
   selector: 'app-grupos',
@@ -20,5 +21,14 @@ export class GruposPage implements OnInit {
     });
     await modal.present();
   }
+
+  async agregarIntegrante() {
+    const modal = await this._modalCtrl.create({
+      component: ListaContactosPage
+    });
+    await modal.present();
+  }
+
+  
 
 }
