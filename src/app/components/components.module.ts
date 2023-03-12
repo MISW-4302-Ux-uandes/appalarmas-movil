@@ -9,6 +9,7 @@ import { CardAlarmTypeComponent } from './card-alarm-type/card-alarm-type.compon
 import { HeaderModalComponent } from './header-modal/header-modal.component';
 import { CardQuickReminderComponent } from './card-quick-reminder/card-quick-reminder.component';
 import { ItemContactosComponent } from './item-contactos/item-contactos.component';
+import { ItemGruposComponent } from './item-grupos/item-grupos.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { ItemContactosComponent } from './item-contactos/item-contactos.componen
     CardAlarmTypeComponent,
     HeaderModalComponent,
     CardQuickReminderComponent,
-    ItemContactosComponent
+    ItemContactosComponent,
+    ItemGruposComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +34,8 @@ import { ItemContactosComponent } from './item-contactos/item-contactos.componen
     CardAlarmTypeComponent,
     HeaderModalComponent,
     CardQuickReminderComponent,
-    ItemContactosComponent
+    ItemContactosComponent,
+    ItemGruposComponent
   ]
 })
 export class ComponentsModule { }

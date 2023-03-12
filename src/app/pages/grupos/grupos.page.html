@@ -2,7 +2,7 @@
 
 <ion-content class="ion-padding">
 
-  <ion-accordion-group>
+  <ion-accordion-group expand="inset">
     <ion-accordion *ngFor="let item of [1,2,3,4,5]; let i=index" [value]="i+1">
       <ion-item slot="header" color="light">
         <ion-label>Grupo {{i+1}}</ion-label>

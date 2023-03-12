@@ -64,6 +64,10 @@ const routes: Routes = [
   {
     path: 'modal-alarmas-hoy',
     loadChildren: () => import('./pages/modal-alarmas-hoy/modal-alarmas-hoy.module').then( m => m.ModalAlarmasHoyPageModule)
+  },
+  {
+    path: 'lista-grupos-contactos',
+    loadChildren: () => import('./pages/lista-grupos-contactos/lista-grupos-contactos.module').then( m => m.ListaGruposContactosPageModule)
   }
 
 

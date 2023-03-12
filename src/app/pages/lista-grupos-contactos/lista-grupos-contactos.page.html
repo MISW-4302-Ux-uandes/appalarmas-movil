@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button (click)="cerrarModal()">
+        <ion-icon slot="start" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="agregarIntegrantes()">
+        Ok
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Seleccione participantes</ion-title>
+  </ion-toolbar>
+
+  <ion-segment value="contactos" (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="contactos">
+      <ion-label>Contactos</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="grupos">
+      <ion-label>Grupos</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+</ion-header>
+
+<ion-content class="ion-padding">
+<app-item-contactos *ngIf="segmento==='contactos'"></app-item-contactos>
+<app-item-grupos *ngIf="segmento==='grupos'"></app-item-grupos>
+</ion-content>

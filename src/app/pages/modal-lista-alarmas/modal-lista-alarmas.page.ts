@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { Alarma } from 'src/app/interfaces/interfaces';
+import { AlertasService } from 'src/app/services/alertas.service';
 import { DataService } from 'src/app/services/data.service';
+import { ModalAlarmaParaPage } from '../modal-alarma-para/modal-alarma-para.page';
 
 @Component({
   selector: 'app-modal-lista-alarmas',
@@ -38,7 +40,7 @@ export class ModalListaAlarmasPage implements OnInit {
 ]
   dataFiltered:Alarma[] = [];
   //data: Observable<Alarma[]>;
-  constructor(private _modalCtrl: ModalController) {
+  constructor(private _modalCtrl: ModalController, private _alertasService:AlertasService) {
     //this.data = this._dataService.getDataAlarmas()
   }
 
@@ -64,6 +66,18 @@ export class ModalListaAlarmasPage implements OnInit {
     }else{
       this.dataFiltered = this.dataAlarmas.filter(a=> a.activa == true)
 
+    }
+  }
+
+  async mostrarModalAlarmaPara(){
+    const modal = await this._modalCtrl.create({
+      component: ModalAlarmaParaPage
+    });
+    await modal.present();
+    const r = await modal.onDidDismiss().then()
+
+    if(r.data){
+      this._alertasService.presentToast('bottom',r.data?.msg,3000)
     }
   }
 

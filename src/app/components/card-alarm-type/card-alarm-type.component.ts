@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { ListaGruposContactosPage } from 'src/app/pages/lista-grupos-contactos/lista-grupos-contactos.page';
 import { ModalFormAlarmaSencillaPage } from 'src/app/pages/modal-form-alarma-sencilla/modal-form-alarma-sencilla.page';
 import { ModalFormCitaMedicaPage } from 'src/app/pages/modal-form-cita-medica/modal-form-cita-medica.page';
 import { ModalFormRecordatorioRapidoPage } from 'src/app/pages/modal-form-recordatorio-rapido/modal-form-recordatorio-rapido.page';
@@ -31,6 +32,16 @@ export class CardAlarmTypeComponent  implements OnInit {
         });
         await modalTipo.present();
         modalTipo.onDidDismiss().then(
+          ({data})=>{
+            if(data){this._modalCtrl.dismiss({ok:true,msg:data.msg})}
+          })
+        break;
+      case 'participantes':
+        const modalParticipantes = await this._modalCtrl.create({
+          component: ListaGruposContactosPage
+        });
+        await modalParticipantes.present();
+        modalParticipantes.onDidDismiss().then(
           ({data})=>{
             if(data){this._modalCtrl.dismiss({ok:true,msg:data.msg})}
           })

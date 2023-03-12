@@ -10,7 +10,7 @@ import { ModalAlarmaParaPage } from '../modal-alarma-para/modal-alarma-para.page
 })
 export class ModalAlarmasHoyPage implements OnInit {
 
-  constructor(private _modalCtrl:ModalController, private _alertas:AlertasService) { }
+  constructor(private _modalCtrl:ModalController, private _alertasService:AlertasService) { }
 
   ngOnInit() {
   }
@@ -20,9 +20,10 @@ export class ModalAlarmasHoyPage implements OnInit {
       component: ModalAlarmaParaPage
     });
     await modal.present();
-    const r = await modal.onDidDismiss()
+    const r = await modal.onDidDismiss().then()
+
     if(r.data){
-      this._alertas.presentToast('bottom',r.data?.msg,3000)
+      this._alertasService.presentToast('bottom',r.data?.msg,3000)
     }
   }
 }

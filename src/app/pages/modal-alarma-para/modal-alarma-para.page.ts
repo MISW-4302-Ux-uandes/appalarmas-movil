@@ -25,7 +25,7 @@ export class ModalAlarmaParaPage implements OnInit {
     {
       titulo: 'Contacto o grupo',
       descripcion: 'Use esta opción para actividades grupales como eventos, reuniones, fiestas o cualquier otro tipo de evento, bien con una persona o grupo de amigos',
-      redirectTo:'tipoAlarma',
+      redirectTo:'participantes',
 
     }
   ]
