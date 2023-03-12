@@ -25,14 +25,14 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: '/tabs/alarmas',
+        redirectTo: '/main/tabs/alarmas',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/alarmas',
+    redirectTo: '/main/tabs/alarmas',
     pathMatch: 'full'
   }
 ];

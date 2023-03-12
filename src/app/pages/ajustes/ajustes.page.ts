@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { ActionSheetController, ModalController } from '@ionic/angular';
 import { AjustesPerfilPage } from '../ajustes-perfil/ajustes-perfil.page';
 import { AjustesSonidosVibracionPage } from '../ajustes-sonidos-vibracion/ajustes-sonidos-vibracion.page';
-import { AjustesTemaPage } from '../ajustes-tema/ajustes-tema.page';
 import { AjustesCalificaPage } from '../ajustes-califica/ajustes-califica.page';
+import { AlertasService } from 'src/app/services/alertas.service';
 
 
 @Component({
@@ -13,7 +13,9 @@ import { AjustesCalificaPage } from '../ajustes-califica/ajustes-califica.page';
 })
 export class AjustesPage implements OnInit {
 
-  constructor( private _modalCtrl:ModalController ) { }
+  constructor( private _modalCtrl:ModalController,
+               private _actionSheetCtrl:ActionSheetController,
+               private _alertasService: AlertasService ) { }
 
   ngOnInit() {
   }
@@ -34,10 +36,45 @@ export class AjustesPage implements OnInit {
   }
 
   async verTema() {
-    const modal = await this._modalCtrl.create({
-      component: AjustesTemaPage
+    const actionSheet = await this._actionSheetCtrl.create({
+      header: 'Elegir tema',
+      //subHeader: 'Elegir tema',
+      buttons: [
+        {
+          text: 'Luz',
+          data: {
+            action: 'luz',
+          },
+        },
+        {
+          text: 'Oscuro',
+          data: {
+            action: 'oscuro',
+          },
+        },
+        {
+          text: 'Utilizar la configuración del dispositivo',
+          data: {
+            action: 'configuración del dispositivo',
+          },
+        },
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          data: {
+            action: 'cancelar',
+          },
+        },
+      ],
     });
-    await modal.present();
+
+    await actionSheet.present();
+
+    const {data} = await actionSheet.onDidDismiss();
+    if(data.action !== 'cancelar'){
+      this._alertasService.presentToast('bottom',`Tema ${data.action} establecido`)
+    }
+
   }
 
   async verCalificacion() {

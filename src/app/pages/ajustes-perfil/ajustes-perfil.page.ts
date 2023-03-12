@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 
 @Component({
@@ -8,13 +9,19 @@ import { ModalController } from '@ionic/angular';
 })
 export class AjustesPerfilPage implements OnInit {
 
-  constructor(private _modalCtrl:ModalController) { }
+  constructor(private _modalCtrl:ModalController, private _router:Router) { }
 
   ngOnInit() {
   }
 
   cerrarModal() {
     this._modalCtrl.dismiss()
+  }
+
+  login(){
+    this._modalCtrl.dismiss();
+    this._router.navigateByUrl("login");
+
   }
 
 }

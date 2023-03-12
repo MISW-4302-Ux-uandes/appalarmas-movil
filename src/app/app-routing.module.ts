@@ -3,8 +3,17 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'main',
     loadChildren: () => import('./pages/tabs/tabs.module').then(m => m.TabsPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: '',
+    redirectTo: '/login',
+    pathMatch: 'full'
   },
   {
     path: 'tipo-alarma',
@@ -39,10 +48,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/ajustes-sonidos-vibracion/ajustes-sonidos-vibracion.module').then( m => m.AjustesSonidosVibracionPageModule)
   },
   {
-    path: 'ajustes-tema',
-    loadChildren: () => import('./pages/ajustes-tema/ajustes-tema.module').then( m => m.AjustesTemaPageModule)
-  },
-  {
     path: 'ajustes-califica',
     loadChildren: () => import('./pages/ajustes-califica/ajustes-califica.module').then( m => m.AjustesCalificaPageModule)
   },
@@ -57,7 +62,8 @@ const routes: Routes = [
   {
     path: 'grupos-formulario',
     loadChildren: () => import('./pages/grupos-formulario/grupos-formulario.module').then( m => m.GruposFormularioPageModule)
-  },  {
+  },
+  {
     path: 'lista-contactos',
     loadChildren: () => import('./pages/lista-contactos/lista-contactos.module').then( m => m.ListaContactosPageModule)
   },
@@ -69,8 +75,6 @@ const routes: Routes = [
     path: 'lista-grupos-contactos',
     loadChildren: () => import('./pages/lista-grupos-contactos/lista-grupos-contactos.module').then( m => m.ListaGruposContactosPageModule)
   }
-
-
 
 ];
 @NgModule({
