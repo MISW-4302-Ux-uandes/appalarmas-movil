@@ -29,7 +29,9 @@
       <app-card-filter
       title="Hoy"
       icon="calendar"
-      [totalAlarms]="1">
+      [totalAlarms]="1"
+      (click)="verAlarmasHoy()"
+      >
     </app-card-filter>
     </ion-col>
   </ion-row>
@@ -43,10 +45,10 @@
     <ion-fab-button (click)="mostrarModalAlarmaPara()">
       <ion-icon name="alarm"></ion-icon>
     </ion-fab-button>
-    <ion-fab-button>
+    <ion-fab-button (click)="modalNuevaCategoria()">
       <ion-icon name="pricetag"></ion-icon>
     </ion-fab-button>
-    <ion-fab-button>
+    <ion-fab-button (click)="modalNuevoGrupo()">
       <ion-icon name="people"></ion-icon>
     </ion-fab-button>
   </ion-fab-list>

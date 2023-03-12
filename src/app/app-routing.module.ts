@@ -60,6 +60,10 @@ const routes: Routes = [
   },  {
     path: 'lista-contactos',
     loadChildren: () => import('./pages/lista-contactos/lista-contactos.module').then( m => m.ListaContactosPageModule)
+  },
+  {
+    path: 'modal-alarmas-hoy',
+    loadChildren: () => import('./pages/modal-alarmas-hoy/modal-alarmas-hoy.module').then( m => m.ModalAlarmasHoyPageModule)
   }
 
 
