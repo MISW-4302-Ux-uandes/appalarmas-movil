@@ -8,7 +8,24 @@
   <ion-text >
     <h3>Próximas 5 alarmas</h3>
   </ion-text>
-<app-card-alarm></app-card-alarm>
+
+  <!-- <app-card-alarm></app-card-alarm> -->
+  <ion-grid fixed >
+    <ion-row>
+      <ion-col>
+        <ion-slides scrollbar   [options]="alarmSlide" >
+          <ion-slide class="ion-text-start " *ngFor="let a of alarmas">
+            <app-card-alarm
+            [alarmTitle]="a.titulo"
+            [alarmCategory]="a.categoria"
+            [alarmHour]="a.fecha"
+            [alarmStatus]="a.activo"
+            ></app-card-alarm>
+          </ion-slide>
+        </ion-slides>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 <ion-text >
   <h3>Filtros</h3>
